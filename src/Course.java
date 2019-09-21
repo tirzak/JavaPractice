@@ -4,7 +4,7 @@ public class Course {
     private String studentId;
     private int studentGrade;
 
-    //Constructor
+    //Empty Constructor
     Course(){}
 
     //Constructor with 4 parameters
