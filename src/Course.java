@@ -4,7 +4,10 @@ public class Course {
     private String studentId;
     private int studentGrade;
 
+    //Constructor
     Course(){}
+
+    //Constructor with 4 parameters
     Course(String CNAME, String cID, String iden, int stuG){
         courseName=CNAME;
         courseId= cID;
@@ -12,6 +15,7 @@ public class Course {
        studentGrade=stuG;
 
     }
+    //Getter methods
     public String getCourseName(){
         return courseName;
     }
@@ -25,10 +29,12 @@ public class Course {
         return studentGrade;
     }
 
+    //Setter methods
     public void setCourseName(String nomen){
         courseName=nomen;
 
     }
+
     public void setCourseId(String electronic){
         courseId=electronic;
 
@@ -41,6 +47,8 @@ public class Course {
         studentGrade=grades;
 
     }
+
+    //Returns a formatted String by overriding the toString() method
     public String toString(){
        return  "Course Name:   "+courseName+"\n"+
                 "Course Number: "+ courseId+"\n"+

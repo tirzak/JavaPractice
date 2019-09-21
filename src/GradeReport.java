@@ -7,6 +7,8 @@ public class GradeReport {
     private String courseId;
     private int studentCt;
     private int courseCt;
+
+    //Two objects
     private Student[] studentArray;
     private Course[] courseArray;
 
@@ -14,6 +16,7 @@ public class GradeReport {
 
     }
 
+    //Constructor
     GradeReport(Student[] studentArray, Course[] courseArray, int numberOfStudent, int numberOfCourse) {
         this.studentArray = studentArray.clone();
         this.courseArray = courseArray.clone();
@@ -21,27 +24,37 @@ public class GradeReport {
         courseCt = numberOfCourse;
     }
 
+
+    //This method returns a string with grades of students and their names for a particular course
     public String getGradesOfCourse(String courseId) {
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         String Name = "";
         double k = 0;
         double sum = 0.0, avg = 1.0;
         String myString = "Grades for Course Id: " + courseId;
-        boolean l = false;
+
 
         for (int s = 0; s < courseArray.length; s++) {
+
+            //to counter null elements
             if (courseArray[s] != null) {
+
+                //Checks if the courseId is in the heap
                 if (courseArray[s].getCourseId().equalsIgnoreCase(courseId)) {
+                    //Gets the student Id of the student
                     String z = courseArray[s].getStudentId();
                     for (int i = 0; i < studentArray.length; i++) {
                         if (studentArray[i].getStudentId().equalsIgnoreCase(z)) {
 
-
+                            //Stores the name of the student
                             Name = studentArray[i].getStudentName();
                             k++;
+                            //Break because for a single course there will be one name only
                             break;
                         }
                     }
+
+                    //formatted string
                     myString = myString + "\n" + "Student Name: " + Name + ", Grade: " + courseArray[s].getStudentGrade();
                     sum += courseArray[s].getStudentGrade();
                 }
@@ -52,21 +65,25 @@ public class GradeReport {
 
     }
 
+
+    //Returns all the grades obtained by a student
     public String getGradesOfStudent(String ID) {
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         String Name = "";
         double k = 0;
         double sum = 0.0, avg = 1.0;
         String Sa = "Grades of Student Id: " + ID;
-        boolean l = false;
+        boolean l = false; // if/else was failing for some reason, that is why I solved it this way
 
+        //Gets the name of the student
         for (int i = 0; i < studentArray.length; i++) {
-            String x = studentArray[i].getStudentId();
-            if (x.equals(ID)) {
 
-
-                Name = studentArray[i].getStudentName();
-                break;
+            if (studentArray[i] != null) {
+                String x = studentArray[i].getStudentId();
+                if (x.equals(ID)) {
+                    Name = studentArray[i].getStudentName();
+                    break; // Name is found
+                }
             }
         }
 
@@ -93,6 +110,8 @@ public class GradeReport {
         return Sa + "\nThe Average of the Student: " + decimalFormat.format(avg);
     }
 
+
+    //Returns a formatted String by overriding the toString() method
     public String toString() {
 
         String myString = "Complete Listing of Courses";
