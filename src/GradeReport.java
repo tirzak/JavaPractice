@@ -73,8 +73,9 @@ public class GradeReport {
         double k = 0;
         double sum = 0.0, avg = 1.0;
         String Sa = "Grades of Student Id: " + ID;
-        boolean l = false; // if/else was failing for some reason, that is why I solved it this way
-
+        boolean l = false; /*boolean to handle the fact that the if/else statement in for loop will go to an ID that does not match and return that it did not find anything i.e. execute
+        the statements inside else
+*/
         //Gets the name of the student
         for (int i = 0; i < studentArray.length; i++) {
 
@@ -119,7 +120,7 @@ public class GradeReport {
 
 
             if (courseArray[i] != null) {
-                myString += "\n" + "Student Id: " + courseArray[i].getStudentId() + " Grade: " + courseArray[i].getStudentGrade() + ", Course: " + courseArray[i].getCourseId();
+                myString += "\n" + "Student Id: " + courseArray[i].getStudentId() + " Grade: " + courseArray[i].getStudentGrade() + "Course: " + courseArray[i].getCourseId();
 
 
             }
