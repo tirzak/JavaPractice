@@ -120,7 +120,7 @@ public class GradeReport {
 
 
             if (courseArray[i] != null) {
-                myString += "\n" + "Student Id: " + courseArray[i].getStudentId() + " Grade: " + courseArray[i].getStudentGrade() + "Course: " + courseArray[i].getCourseId();
+                myString += "\n" + "Student Id: " + courseArray[i].getStudentId() + ", Grade: " + courseArray[i].getStudentGrade() + ", Course: " + courseArray[i].getCourseId();
 
 
             }
